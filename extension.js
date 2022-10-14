@@ -176,12 +176,12 @@ function activate( context )
         var linesParts = lines.map( line => line.text.split( splitRegex ) );
         if( expand === true )
         {
-            var extraSpace = vscode.workspace.getConfiguration( 'autoAlign' ).get( 'extraSpace' ) === true ? " " : "";
+            var extraSpaceAfter = vscode.workspace.getConfiguration( 'autoAlign' ).get( 'extraSpaceAfter' ) === true ? " " : "";
             linesParts = linesParts.map( function( line )
             {
                 return line.map( function( part, index )
                 {
-                    return ( index === 0 ? "" : extraSpace ) + part.trim();
+                    return ( index === 0 ? "" : extraSpaceAfter ) + part.trim();
                 } );
             } );
         }
@@ -444,7 +444,7 @@ function activate( context )
             var nextSeparator = text.substr( cursorPos ).indexOf( associatedFileSeparator() );
             if( nextSeparator > -1 )
             {
-                nextSeparator += ( vscode.workspace.getConfiguration( 'autoAlign' ).get( 'extraSpace' ) === true ? 2 : 1 );
+                nextSeparator += ( vscode.workspace.getConfiguration( 'autoAlign' ).get( 'extraSpaceAfter' ) === true ? 2 : 1 );
             }
             var nextLine = text.substr( cursorPos ).indexOf( '\n' );
             if( nextLine > -1 )
@@ -470,14 +470,14 @@ function activate( context )
         {
             var text = editor.document.getText();
             var cursorPos = editor.document.offsetAt( editor.selection.start ) - 1;
-            if( vscode.workspace.getConfiguration( 'autoAlign' ).get( 'extraSpace' ) === true )
+            if( vscode.workspace.getConfiguration( 'autoAlign' ).get( 'extraSpaceAfter' ) === true )
             {
                 cursorPos -= 1;
             }
             var previousSeparator = text.substr( 0, cursorPos ).lastIndexOf( associatedFileSeparator() );
             if( previousSeparator > -1 )
             {
-                previousSeparator += ( vscode.workspace.getConfiguration( 'autoAlign' ).get( 'extraSpace' ) === true ? 2 : 1 );
+                previousSeparator += ( vscode.workspace.getConfiguration( 'autoAlign' ).get( 'extraSpaceAfter' ) === true ? 2 : 1 );
             }
             var previousLine = text.substr( 0, cursorPos ).lastIndexOf( '\n' );
             if( previousLine > -1 )
