@@ -92,6 +92,11 @@
                     "description": "The delay in milliseconds before auto formatting",
                     "default": 1000
                 },
+                "autoAlign.extraSpaceBefore": {
+                    "type": "boolean",
+                    "description": "Automatically add an extra space before the separator for readability",
+                    "default": true
+                },
                 "autoAlign.extraSpaceAfter": {
                     "type": "boolean",
                     "description": "Automatically add an extra space after the separator for readability",

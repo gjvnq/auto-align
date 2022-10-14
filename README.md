@@ -55,6 +55,10 @@ When auto align is enabled, the separators are dimmed to aid readability. Set th
 
 If set to true, the fields will all be collapsed (spaces trimmed) when auto align is disabled. The file can also be collapsed manually using the **'Auto Align: Format'** command if auto align is not enabled.
 
+`autoAlign.extraSpaceBefore`
+
+By default, an extra space is inserted before the separator to aid readability. If you don't want this, set this flag to false.
+
 `autoAlign.extraSpaceAfter`
 
 By default, an extra space is inserted after the separator to aid readability. If you don't want this, set this flag to false.
